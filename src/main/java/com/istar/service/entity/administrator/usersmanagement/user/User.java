@@ -4,6 +4,7 @@ package com.istar.service.entity.administrator.usersmanagement.user;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import com.istar.service.entity.administrator.usersmanagement.permission.Role;
 
 @Entity
 @Table(name = "sys_users")

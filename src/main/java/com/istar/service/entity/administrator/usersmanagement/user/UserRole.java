@@ -3,6 +3,7 @@ package com.istar.service.entity.administrator.usersmanagement.user;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import com.istar.service.entity.administrator.usersmanagement.permission.Role;
 
 @Data
 @Entity
