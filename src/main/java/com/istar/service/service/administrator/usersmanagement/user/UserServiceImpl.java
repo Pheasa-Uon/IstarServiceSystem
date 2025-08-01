@@ -149,4 +149,3 @@ public class UserServiceImpl implements UserService {
         return roleFeaturePermissionRepository.findByRoleIdIn(roleIds);
     }
 }
-

@@ -1,9 +1,8 @@
 package com.istar.service.controller.administrator.usersmanagement.user;
 
-
 import com.istar.service.entity.administrator.usersmanagement.user.User;
 import com.istar.service.service.administrator.usersmanagement.user.UserService;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +30,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PreAuthorize("hasAuthority('USR_ADD')")
+    //@PreAuthorize("hasAuthority('USR_ADD')")
     @PostMapping
     public User registerUser(@RequestBody User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -42,13 +41,13 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @PreAuthorize("hasAuthority('USR_VIEWED')")
+    //@PreAuthorize("hasAuthority('USR_VIEWED')")
     @GetMapping
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
-    @PreAuthorize("hasAuthority('USR_VIEWED')")
+    //@PreAuthorize("hasAuthority('USR_VIEWED')")
     @GetMapping("/status")
     public Map<String, String> getStatusLabels() {
         Map<String, String> statusMap = new HashMap<>();
@@ -59,7 +58,7 @@ public class UserController {
     }
 
     // Update user
-    @PreAuthorize("hasAuthority('USR_EDIT')")
+    //@PreAuthorize("hasAuthority('USR_EDIT')")
     @PutMapping("/edit/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
         User updated = userService.updateUser(id, user);
@@ -72,14 +71,14 @@ public class UserController {
         return ResponseEntity.ok("Password has been reset.");
     }
 
-    @PreAuthorize("hasAuthority('USR_DELETE')")
+    //@PreAuthorize("hasAuthority('USR_DELETE')")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.softDeleteUser(id);
         return ResponseEntity.ok("User has been soft-deleted.");
     }
 
-    @PreAuthorize("hasAuthority('USR_SEARCH')")
+    //@PreAuthorize("hasAuthority('USR_SEARCH')")
     @GetMapping("/search")
     public List<User> searchUsers(@RequestParam(required = false) String keyword) {
         System.out.println(keyword);

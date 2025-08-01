@@ -1,6 +1,6 @@
 package com.istar.service.entity.administrator.usersmanagement.user;
 
-import com.istar.service.entity.administrator.usersmanagement.permission.Role;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -138,14 +138,6 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public List<UserRole> getUserRoles() {
-        return userRoles;
-    }
-
-    public void setUserRoles(List<UserRole> userRoles) {
-        this.userRoles = userRoles;
-    }
-
     // Getters and Setters for all fields
 
     // ... (you already have these, just add for the new fields)
@@ -202,6 +194,4 @@ public class User {
     public void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
-
 }

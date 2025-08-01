@@ -198,8 +198,4 @@ public class RoleFeaturePermission {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    public RoleFeaturePermission() {
-        super();
-    }
 }
