@@ -46,6 +46,7 @@ public class RoleFeaturePermissionService {
             FeaturePermissionDTO dto = new FeaturePermissionDTO();
             dto.setRoleId(p.getRole().getId());
             dto.setFeatureId(p.getFeature().getId());
+            dto.setFeatureCode(p.getFeature().getCode());
             dto.setIsSearch(p.getIsSearch());
             dto.setIsAdd(p.getIsAdd());
             dto.setIsViewed(p.getIsViewed());

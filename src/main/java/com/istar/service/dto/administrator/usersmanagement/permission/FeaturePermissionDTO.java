@@ -8,7 +8,7 @@ public class FeaturePermissionDTO {
     private Long roleId;
     private Long featureId;
 
-    private String code;
+    private String featureCode;
 
     private Boolean isSearch = false;
     private Boolean isAdd = false;
@@ -30,7 +30,7 @@ public class FeaturePermissionDTO {
 
     public FeaturePermissionDTO(String code, Boolean isSearch, Boolean isAdd,
                                 Boolean isViewed, Boolean isEdit, Boolean isDeleted) {
-        this.code = code;
+        this.featureCode = code;
         this.isSearch = isSearch;
         this.isAdd = isAdd;
         this.isViewed = isViewed;
@@ -55,11 +55,11 @@ public class FeaturePermissionDTO {
     }
 
     public String getFeatureCode() {
-        return code;
+        return featureCode;
     }
 
-    public void setFeatureCode(String code) {
-        this.code = code;
+    public void setFeatureCode(String featureCode) {
+        this.featureCode = featureCode;
     }
 
     public Boolean getIsSearch() {

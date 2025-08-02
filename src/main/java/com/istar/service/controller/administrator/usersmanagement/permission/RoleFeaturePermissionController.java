@@ -43,7 +43,7 @@ public class RoleFeaturePermissionController {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         }
-        System.out.println("Permissions found: " + permissions.size());
+        System.out.println("Permissions found: " + permissions);
         return ResponseEntity.ok(permissions);
     }
 
