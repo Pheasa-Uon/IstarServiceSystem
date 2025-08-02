@@ -79,6 +79,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/roles/search/**").permitAll()
 
                         .requestMatchers("/api/permissions/**").permitAll()
+                        .requestMatchers("/api/permissions/role/**").permitAll()
                         .requestMatchers("/api/features/treetable/**").permitAll()
 
                         .anyRequest().authenticated()

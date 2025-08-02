@@ -65,6 +65,7 @@ public class RoleFeaturePermissionService {
     }
 
     public RoleFeaturePermission createPermission(RoleFeaturePermission permission) {
+        permission.setBStatus(true);
         permission.setCreatedAt(LocalDateTime.now());
         permission.setUpdatedAt(LocalDateTime.now());
         return permissionRepository.save(permission);
@@ -116,13 +117,13 @@ public class RoleFeaturePermissionService {
             permission.setIsProcess(dto.getIsProcess());
             permission.setIsImport(dto.getIsImport());
             permission.setIsExport(dto.getIsExport());
-            permission.setBStatus(dto.getBStatus());
+            permission.setBStatus(true);
 
             if (permission.getId() == null) {
                 permission.setCreatedAt(LocalDateTime.now());
             }
             permission.setUpdatedAt(LocalDateTime.now());
-
+            System.out.println("Saving permission: " + permission.getRole().getName() + " - " + permission.getFeature().getName());
             permissionRepository.save(permission);
         }
     }

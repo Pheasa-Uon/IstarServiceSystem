@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/permissions")
@@ -33,7 +35,15 @@ public class RoleFeaturePermissionController {
         if (role == null) {
             return ResponseEntity.notFound().build();
         }
+        System.out.println("Role found: " + role.getName());
         List<FeaturePermissionDTO> permissions = permissionService.getPermissionsByRole(role);
+        // Add null check and filtering
+        if (permissions != null) {
+            permissions = permissions.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        }
+        System.out.println("Permissions found: " + permissions.size());
         return ResponseEntity.ok(permissions);
     }
 

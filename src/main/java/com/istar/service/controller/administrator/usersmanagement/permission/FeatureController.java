@@ -52,17 +52,5 @@ public class FeatureController {
         return ResponseEntity.ok(featureService.getFeatureTree());
     }
 
-    @RestController
-    @RequestMapping("/api/permissions")
-    @RequiredArgsConstructor
-    public static class PermissionController {
-
-        private final PermissionService permissionService;
-
-        @GetMapping("/user/{userId}")
-        public List<FeaturePermissionDTO> getPermissions(@PathVariable Long userId) {
-            return permissionService.getMergedPermissionsByUserId(userId);
-        }
-    }
 }
 
