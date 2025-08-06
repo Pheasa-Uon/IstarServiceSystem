@@ -82,6 +82,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/permissions/role/**").permitAll()
                         .requestMatchers("/api/features/treetable/**").permitAll()
 
+                        .requestMatchers("/api/user-permissions/**").permitAll()
+                        .requestMatchers("/api/user-permissions/me").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
