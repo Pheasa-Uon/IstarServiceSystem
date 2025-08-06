@@ -57,8 +57,8 @@ public class AuthController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not found");
         }
-
-
+        System.out.println("User: " + userDetails.getUsername());
+        System.out.println("Token: " + token);
         return ResponseEntity.ok(Collections.singletonMap("token", token));
     }
 
