@@ -5,9 +5,13 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import com.istar.service.entity.administrator.usersmanagement.permission.Role;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "sys_users")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -28,10 +32,6 @@ public class User {
 
     @Column(nullable = false)
     private String password;
-
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
 
     @Column(name = "login_token")
     private String loginToken;
@@ -68,127 +68,119 @@ public class User {
 
     // Getters and Setters
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
-    }
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getLoginToken() {
-        return loginToken;
-    }
-
-    public void setLoginToken(String loginToken) {
-        this.loginToken = loginToken;
-    }
-
-    public LocalDateTime getLastLoginAt() {
-        return lastLoginAt;
-    }
-
-    public void setLastLoginAt(LocalDateTime lastLoginAt) {
-        this.lastLoginAt = lastLoginAt;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    // Getters and Setters for all fields
-
-    // ... (you already have these, just add for the new fields)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-    public boolean isBStatus() {
-        return bStatus;
-    }
-
-    public void setBStatus(boolean bStatus) {
-        this.bStatus = bStatus;
-    }
-
-    public String getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(String userStatus) {
-        this.userStatus = userStatus;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getUserCode() {
+//        return userCode;
+//    }
+//
+//    public void setUserCode(String userCode) {
+//        this.userCode = userCode;
+//    }
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getLoginToken() {
+//        return loginToken;
+//    }
+//
+//    public void setLoginToken(String loginToken) {
+//        this.loginToken = loginToken;
+//    }
+//
+//    public LocalDateTime getLastLoginAt() {
+//        return lastLoginAt;
+//    }
+//
+//    public void setLastLoginAt(LocalDateTime lastLoginAt) {
+//        this.lastLoginAt = lastLoginAt;
+//    }
+//
+//    public LocalDateTime getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setCreatedAt(LocalDateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
+//
+//    public LocalDateTime getUpdatedAt() {
+//        return updatedAt;
+//    }
+//
+//    public void setUpdatedAt(LocalDateTime updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
+//
+//    // Getters and Setters for all fields
+//
+//    // ... (you already have these, just add for the new fields)
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public boolean isAdmin() {
+//        return isAdmin;
+//    }
+//
+//    public void setAdmin(boolean admin) {
+//        isAdmin = admin;
+//    }
+//
+//    public boolean isBStatus() {
+//        return bStatus;
+//    }
+//
+//    public void setBStatus(boolean bStatus) {
+//        this.bStatus = bStatus;
+//    }
+//
+//    public String getUserStatus() {
+//        return userStatus;
+//    }
+//
+//    public void setUserStatus(String userStatus) {
+//        this.userStatus = userStatus;
+//    }
+//
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     // Optional: update updatedAt on entity update
     @PreUpdate
